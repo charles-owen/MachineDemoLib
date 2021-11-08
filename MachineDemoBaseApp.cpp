@@ -1,0 +1,50 @@
+/**
+ * @file MachineDemoApp.cpp
+ * @author Charles Owen
+ */
+
+#include "pch.h"
+
+#include <wx/xrc/xmlres.h>
+#include <wx/stdpaths.h>
+
+#include "MachineDemoBaseApp.h"
+#include "MachineDemoMainFrame.h"
+
+/// Directory within resources that contains the images.
+const std::wstring ImagesDirectory = L"/images";
+
+/**
+ * Initialize the application
+ * @return True if successful
+ */
+bool MachineDemoBaseApp::OnInit()
+{
+    if (!wxApp::OnInit())
+        return false;
+
+    // Add image type handlers
+    wxInitAllImageHandlers();
+
+    // Get pointer to XML resource system
+    auto xmlResource = wxXmlResource::Get();
+
+    // Initialize XRC handlers
+    xmlResource->InitAllHandlers();
+
+    // Load all XRC resources from the program resources
+    auto standardPaths = wxStandardPaths::Get();
+    if (!wxXmlResource::Get()->LoadAllFiles(standardPaths.GetResourcesDir() + "/xrc"))
+    {
+        return false;
+    }
+
+    // Create the machine isolator containing a machine
+    auto imagesDir = standardPaths.GetResourcesDir() + ImagesDirectory;
+    auto machine = CreateMachineIsolator(imagesDir.ToStdWstring());
+
+    auto frame = new MachineDemoMainFrame(machine);
+    frame->Show(true);
+
+    return true;
+}
