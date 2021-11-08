@@ -23,6 +23,9 @@ const std::wstring ImagesDirectory = L"/images";
 MachineDemoMainFrame::MachineDemoMainFrame(std::shared_ptr<IMachineIsolator> machineIsolator)
 {
     wxXmlResource::Get()->LoadFrame(this, nullptr, L"MainFrame");
+#ifdef WIN32
+    SetIcon(wxIcon(L"mainframe", wxBITMAP_TYPE_ICO_RESOURCE));
+#endif
 
     // Where do the images come from?
     auto standardPaths = wxStandardPaths::Get();
