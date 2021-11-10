@@ -1,5 +1,5 @@
 /**
- * @file MachineDemoApp.h
+ * @file MachineDemoBaseApp.h
  * @author Charles Owen
  *
  * Base class for the MachineDemo application class
