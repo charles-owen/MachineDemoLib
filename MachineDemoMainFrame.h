@@ -28,10 +28,8 @@ private:
     void OnAbout(wxCommandEvent& event);
     void OnClose(wxCloseEvent& event);
 
-    std::shared_ptr<Controller> mController;
-
 public:
-    MachineDemoMainFrame(std::shared_ptr<IMachineIsolator> machineIsolator);
+    MachineDemoMainFrame(std::shared_ptr<IMachineIsolator> machineIsolator, Controller* controller);
 
     /// Default constructor (disabled)
     MachineDemoMainFrame() = delete;

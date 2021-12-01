@@ -7,6 +7,7 @@
 
 #include <wx/xrc/xmlres.h>
 #include <wx/stdpaths.h>
+#include <wx/cmdline.h>
 
 #include "MachineDemoBaseApp.h"
 #include "MachineDemoMainFrame.h"
@@ -43,8 +44,25 @@ bool MachineDemoBaseApp::OnInit()
     auto imagesDir = standardPaths.GetResourcesDir() + ImagesDirectory;
     auto machine = CreateMachineIsolator(imagesDir.ToStdWstring());
 
-    auto frame = new MachineDemoMainFrame(machine);
+    auto frame = new MachineDemoMainFrame(machine, &mController);
     frame->Show(true);
 
+    mController.Execute();
     return true;
+}
+
+void MachineDemoBaseApp::OnInitCmdLine(wxCmdLineParser& parser)
+{
+    wxAppBase::OnInitCmdLine(parser);
+    mController.OnInitCmdLine(parser);
+}
+
+bool MachineDemoBaseApp::OnCmdLineParsed(wxCmdLineParser& parser)
+{
+    if(!mController.OnCmdLineParsed(parser))
+    {
+        return false;
+    }
+
+    return wxAppBase::OnCmdLineParsed(parser);
 }

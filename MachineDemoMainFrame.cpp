@@ -21,7 +21,8 @@ const std::wstring ImagesDirectory = L"/images";
 /**
  * Constructor
  */
-MachineDemoMainFrame::MachineDemoMainFrame(std::shared_ptr<IMachineIsolator> machineIsolator)
+MachineDemoMainFrame::MachineDemoMainFrame(std::shared_ptr<IMachineIsolator> machineIsolator,
+        Controller* controller)
 {
     wxXmlResource::Get()->LoadFrame(this, nullptr, L"MainFrame");
 #ifdef WIN32
@@ -43,11 +44,11 @@ MachineDemoMainFrame::MachineDemoMainFrame(std::shared_ptr<IMachineIsolator> mac
     SetSizer( sizer );
     Layout();
 
+    controller->SetWindows(this, mMachineView, mControlPanel);
+
     Bind(wxEVT_COMMAND_MENU_SELECTED, &MachineDemoMainFrame::OnExit, this, wxID_EXIT);
     Bind(wxEVT_COMMAND_MENU_SELECTED, &MachineDemoMainFrame::OnAbout, this, wxID_ABOUT);
     Bind(wxEVT_CLOSE_WINDOW, &MachineDemoMainFrame::OnClose, this);
-
-    mController = std::make_shared<Controller>(this, mMachineView, mControlPanel);
 }
 
 /**

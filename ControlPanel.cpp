@@ -104,16 +104,16 @@ ControlPanel::ControlPanel(MachineDemoMainFrame* mainFrame)
 void ControlPanel::OnFrameSliderChanged(wxCommandEvent &event)
 {
     auto frame = mFrameSlider->GetValue();
-    SetFrame(frame);
+    SetMachineFrame(frame);
     Stop();
 }
 
 /**
- * Set the current Frame.
+ * Set the current frame in the machine
  * Sets the machine frame and the current frame and tiem controls
  * @param frame Frame to set
  */
-void ControlPanel::SetFrame(int frame)
+void ControlPanel::SetMachineFrame(int frame)
 {
     auto time = mMachineView->SetFrame(frame);
     mFrameNumberCtrl->SetLabel(wxString::Format(wxT("%i"),frame));
@@ -164,7 +164,7 @@ void ControlPanel::OnRewind(wxCommandEvent& event)
 {
     Stop();
     mFrameSlider->SetValue(0);
-    SetFrame(0);
+    SetMachineFrame(0);
 }
 
 /**
@@ -222,5 +222,11 @@ void ControlPanel::OnTimer(wxTimerEvent& event)
     }
 
     mFrameSlider->SetValue(frame);
-    SetFrame(frame);
+    SetMachineFrame(frame);
+}
+
+void ControlPanel::SetFrame(int frame)
+{
+    mFrameSlider->SetValue(frame);
+    SetMachineFrame(frame);
 }

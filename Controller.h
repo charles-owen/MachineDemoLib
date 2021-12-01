@@ -9,6 +9,8 @@
 #ifndef CANADIANEXPERIENCE_CONTROLLER_H
 #define CANADIANEXPERIENCE_CONTROLLER_H
 
+#include <list>
+
 class MachineDemoMainFrame;
 class MachineView;
 class ControlPanel;
@@ -20,17 +22,88 @@ class ControlPanel;
 class Controller final {
 private:
     /// The MainFrame window
-    MachineDemoMainFrame* mMainFrame;
+    MachineDemoMainFrame* mMainFrame = nullptr;
 
     /// The Machine view
-    MachineView* mMachineView;
+    MachineView* mMachineView = nullptr;
 
     /// The control panel
-    ControlPanel* mControlPanel;
+    ControlPanel* mControlPanel = nullptr;
+
+    class Task {
+    protected:
+        Controller* mController;
+
+    public:
+        Task(Controller* controller) : mController(controller) {}
+
+        virtual ~Task() = default;
+
+        /// Default constructor (disabled)
+        Task() = delete;
+
+        /// Copy constructor (disabled)
+        Task(const Task &) = delete;
+
+        /// Assignment operator
+        void operator=(const Task &) = delete;
+
+        /**
+         * Execute this task,
+         * @return
+         */
+        virtual bool Execute() = 0;
+    };
+
+    class TaskFrame : public Task {
+    private:
+        int mFrame;
+
+    public:
+        TaskFrame(Controller* controller, const wxString &arg);
+        bool Execute() override;
+    };
+
+    class TaskCapture : public Task {
+    private:
+        wxString mFilename;
+
+    public:
+        TaskCapture(Controller* controller, const wxString &arg);
+        bool Execute() override;
+    };
+
+    class TaskWriteGIF : public Task {
+    private:
+        wxString mFilename;
+        double mDuration;
+
+    public:
+        TaskWriteGIF(Controller* controller, const wxString &arg1, const wxString &arg2);
+        bool Execute() override;
+    };
+
+    class TaskExit : public Task {
+    private:
+        wxString mFilename;
+
+    public:
+        explicit TaskExit(Controller* controller) : Task(controller) {}
+        bool Execute() override;
+    };
+
+    std::list<std::shared_ptr<Task>> mTasks;
+    std::vector<wxImage> mImages;
 
 public:
-    Controller(MachineDemoMainFrame* mainFrame, MachineView* machineView, ControlPanel* controlPanel);
+    Controller() = default;
 
+    void OnInitCmdLine(wxCmdLineParser& parser);
+    bool OnCmdLineParsed(wxCmdLineParser& parser);
+    void SetWindows(MachineDemoMainFrame *frame,
+            MachineView* machineView, ControlPanel* controlPanel);
+
+    void Execute();
 };
 
 #endif //CANADIANEXPERIENCE_CONTROLLER_H

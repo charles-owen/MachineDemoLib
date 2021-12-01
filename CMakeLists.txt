@@ -17,7 +17,8 @@ set(SOURCE_FILES pch.h IMachineIsolator.h
         MachineDemoMainFrame.cpp MachineDemoMainFrame.h
         ControlPanel.cpp ControlPanel.h
         MachineView.cpp MachineView.h
-        AboutDialog.cpp AboutDialog.h)
+        AboutDialog.cpp AboutDialog.h
+        Controller.cpp Controller.h)
 
 
 add_library(${PROJECT_NAME} STATIC ${SOURCE_FILES})

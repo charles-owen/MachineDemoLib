@@ -26,7 +26,7 @@ private:
     void OnStop(wxCommandEvent& event);
     void OnTimer(wxTimerEvent& event);
 
-    void SetFrame(int frame);
+    void SetMachineFrame(int frame);
 
     /// Pointer to the machine view
     MachineView *mMachineView;
@@ -63,7 +63,7 @@ public:
 
     void Stop();
 
-
+    void SetFrame(int frame);
 };
 
 #endif //CANADIANEXPERIENCE_CONTROLPANEL_H
