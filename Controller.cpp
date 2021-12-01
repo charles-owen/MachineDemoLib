@@ -35,6 +35,7 @@ using namespace std;
  * frame N - moves the slider to frame N
  * capture-png filename - Captures the machine image as a file
  * capture - Captures the screen as an image, multiple images can be captured
+ * machine N - Selection machine N
  * write-gif filename duration - Write captured images as an animated GIF file, frame duration in seconds
  * exit - Exit the program
  *
@@ -57,6 +58,17 @@ bool Controller::OnCmdLineParsed(wxCmdLineParser& parser)
 
             argnum++;
             mTasks.push_back(std::make_shared<TaskFrame>(this, parser.GetParam(argnum)));
+        }
+        else if(arg == "machine")
+        {
+            if(argnum >= argc-1)
+            {
+                cerr <<"The machine command requires a machine number" << endl;
+                return false;
+            }
+
+            argnum++;
+            mTasks.push_back(std::make_shared<TaskMachine>(this, parser.GetParam(argnum)));
         }
         else if(arg == "capture-png")
         {
@@ -232,9 +244,20 @@ bool Controller::TaskWriteGIF::Execute()
     mController->mImages.clear();
 
     auto ret = gif.SaveAnimation(images,
-            &stream,
+            &stream, true,
             int(mDuration * 1000));
 
     stream.Close();
+    return false;
+}
+
+Controller::TaskMachine::TaskMachine(Controller* controller, const wxString& arg) : Task(controller)
+{
+    mMachine = wxAtoi(arg);
+}
+
+bool Controller::TaskMachine::Execute()
+{
+    mController->mControlPanel->SetMachineNumber(mMachine);
     return false;
 }

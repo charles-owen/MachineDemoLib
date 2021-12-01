@@ -64,6 +64,7 @@ public:
     void Stop();
 
     void SetFrame(int frame);
+    void SetMachineNumber(int machine);
 };
 
 #endif //CANADIANEXPERIENCE_CONTROLPANEL_H

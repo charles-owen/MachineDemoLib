@@ -230,3 +230,14 @@ void ControlPanel::SetFrame(int frame)
     mFrameSlider->SetValue(frame);
     SetMachineFrame(frame);
 }
+
+void ControlPanel::SetMachineNumber(int machineNum)
+{
+    auto machine = mMachineView->GetMachineIsolator();
+    machine->SetMachineNumber(machineNum);
+    mMachineNumberCtrl->SetLabel(wxString::Format(wxT("%i"), machine->GetMachineNumber()));
+    mMachineView->SetupMachine();
+
+    mFrameSlider->SetValue(0);
+    SetMachineFrame(0);
+}

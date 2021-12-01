@@ -64,6 +64,15 @@ private:
         bool Execute() override;
     };
 
+    class TaskMachine : public Task {
+    private:
+        int mMachine;
+
+    public:
+        TaskMachine(Controller* controller, const wxString &arg);
+        bool Execute() override;
+    };
+
     class TaskCapture : public Task {
     private:
         wxString mFilename;
