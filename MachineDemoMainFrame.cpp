@@ -12,6 +12,7 @@
 #include "ControlPanel.h"
 #include "MachineView.h"
 #include "AboutDialog.h"
+#include "Controller.h"
 
 /// Directory within resources that contains the images.
 const std::wstring ImagesDirectory = L"/images";
@@ -45,22 +46,33 @@ MachineDemoMainFrame::MachineDemoMainFrame(std::shared_ptr<IMachineIsolator> mac
     Bind(wxEVT_COMMAND_MENU_SELECTED, &MachineDemoMainFrame::OnExit, this, wxID_EXIT);
     Bind(wxEVT_COMMAND_MENU_SELECTED, &MachineDemoMainFrame::OnAbout, this, wxID_ABOUT);
     Bind(wxEVT_CLOSE_WINDOW, &MachineDemoMainFrame::OnClose, this);
+
+    mController = std::make_shared<Controller>(this, mMachineView, mControlPanel);
 }
 
-
+/**
+ * Exit menu option handlers
+ * @param event Menu event
+ */
 void MachineDemoMainFrame::OnExit(wxCommandEvent& event)
 {
     Close(true);
 }
 
-
+/**
+ * Application about box menu handler
+ * @param event Menu event
+ */
 void MachineDemoMainFrame::OnAbout(wxCommandEvent& event)
 {
     AboutDialog aboutDlg(this);
     aboutDlg.ShowModal();
 }
 
-
+/**
+ * Handle a close event. Stop the animation and destroy this window.
+ * @param event The Close event
+ */
 void MachineDemoMainFrame::OnClose(wxCloseEvent& event)
 {
     mControlPanel->Stop();
