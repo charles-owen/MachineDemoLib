@@ -25,7 +25,7 @@ private:
 public:
     bool OnInit() override;
 
-    virtual std::shared_ptr<IMachineIsolator> CreateMachineIsolator(std::wstring imagesDir) = 0;
+    virtual std::shared_ptr<IMachineIsolator> CreateMachineIsolator(std::wstring resourcesDir) = 0;
 
     bool OnCmdLineParsed(wxCmdLineParser & 	parser) override;
 

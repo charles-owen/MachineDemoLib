@@ -41,8 +41,10 @@ bool MachineDemoBaseApp::OnInit()
     }
 
     // Create the machine isolator containing a machine
-    auto imagesDir = standardPaths.GetResourcesDir() + ImagesDirectory;
-    auto machine = CreateMachineIsolator(imagesDir.ToStdWstring());
+   // auto imagesDir = standardPaths.GetResourcesDir() + ImagesDirectory;
+   // auto machine = CreateMachineIsolator(imagesDir.ToStdWstring());
+
+    auto machine = CreateMachineIsolator(standardPaths.GetResourcesDir().ToStdWstring());
 
     auto frame = new MachineDemoMainFrame(machine, &mController);
     frame->Show(true);
