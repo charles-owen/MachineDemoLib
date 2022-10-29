@@ -16,9 +16,6 @@
 /// Maximum frame we play to
 const int MaxFrame = 300;
 
-/// Maximum possible speed
-const double MaxSpeed = 2.0;
-
 /// Minimum possible zoom factor
 const double MinZoom = 0.5;
 
@@ -46,17 +43,6 @@ ControlPanel::ControlPanel(MachineDemoMainFrame* mainFrame)
     Bind(wxEVT_SLIDER, &ControlPanel::OnFrameSliderChanged, this, XRCID("FrameSlider"));
 
     mMachineView->SetFrame(mFrameSlider->GetValue());
-
-    //
-    // Speed slider
-    //
-    mSpeedSlider = XRCCTRL(*this, "SpeedSlider", wxSlider);
-    mSpeedSlider->SetMax(200);
-    mSpeedSlider->SetValue(100);
-
-    Bind(wxEVT_SLIDER, &ControlPanel::OnSpeedSliderChanged, this, XRCID("SpeedSlider"));
-
-    mMachineView->SetSpeed(mSpeedSlider->GetValue() * MaxSpeed / mSpeedSlider->GetMax());
 
     //
     // Zoom slider
@@ -120,15 +106,6 @@ void ControlPanel::SetMachineFrame(int frame)
     mMachineTimeCtrl->SetLabel(wxString::Format(wxT("%0.2f"), time));
 }
 
-
-/**
- * Handle changes to the frame slider
- * @param event Command event for slider value change
- */
-void ControlPanel::OnSpeedSliderChanged(wxCommandEvent &event)
-{
-    mMachineView->SetSpeed(mSpeedSlider->GetValue() * MaxSpeed / mSpeedSlider->GetMax());
-}
 
 /**
  * Handle changes to the frame slider

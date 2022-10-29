@@ -27,9 +27,6 @@ private:
     /// Current machine frame
     int mFrame = 0;
 
-    /// Machine speed
-    double mSpeed = 1.0;
-
     /// Zoom factor
     double mZoom = 1.0;
 
@@ -42,8 +39,6 @@ public:
     void DrawAxis(std::shared_ptr<wxGraphicsContext> graphics);
 
     double SetFrame(int frame);
-
-    void SetSpeed(double speed);
 
     void SetZoom(double zoom);
 

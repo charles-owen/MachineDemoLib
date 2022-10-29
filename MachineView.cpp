@@ -141,16 +141,6 @@ double MachineView::SetFrame(int frame)
     return mMachineIsolator->GetMachineTime();
 }
 
-/**
- * Set the machine speed
- * @param speed Speed to set.
- */
-void MachineView::SetSpeed(double speed)
-{
-    mSpeed = speed;
-    SetupMachine();
-    Refresh();
-}
 
 /**
  * Set the zoom factor.
@@ -204,7 +194,6 @@ double MachineView::GetMachineTime()
  * Set up the machine:
  *  Location on screen
  *  Frame rate
- *  Speed
  *  Current frame
  */
 void MachineView::SetupMachine()
@@ -212,7 +201,6 @@ void MachineView::SetupMachine()
     mMachineIsolator->SetLocation(wxPoint(ViewWidth/2 - OffsetX, ViewHeight - 150 - OffsetY));
 
     mMachineIsolator->SetFrameRate(mFrameRate);
-    mMachineIsolator->SetSpeed(mSpeed);
     mMachineIsolator->SetMachineFrame(mFrame);
 
     Refresh();

@@ -18,7 +18,6 @@ class MachineView;
 class ControlPanel final : public wxPanel {
 private:
     void OnFrameSliderChanged(wxCommandEvent& event);
-    void OnSpeedSliderChanged(wxCommandEvent& event);
     void OnZoomSliderChanged(wxCommandEvent& event);
     void OnSelectMachine(wxCommandEvent& event);
     void OnRewind(wxCommandEvent& event);
@@ -36,9 +35,6 @@ private:
 
     /// The static control that displays the current frame
     wxStaticText *mFrameNumberCtrl;
-
-    /// The speed selection slider
-    wxSlider *mSpeedSlider;
 
     /// The zoom slider
     wxSlider *mZoomSlider;

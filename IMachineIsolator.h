@@ -34,12 +34,6 @@ public:
     virtual void SetFrameRate(double rate) = 0;
 
     /**
-    * Set  the bend angle
-    * @param speed Speed from 0 to 1, where 1 is full speed
-    */
-    virtual void SetSpeed(double speed) = 0;
-
-    /**
     * Set the machine number
     * @param machine An integer number. Each number makes a different machine
     */

@@ -134,18 +134,18 @@
 					</object>
 					<object class="sizeritem">
 						<option>0</option>
-						<flag>wxALIGN_CENTER_VERTICAL|wxALIGN_RIGHT|wxALL</flag>
+						<flag>wxALIGN_RIGHT|wxALL</flag>
 						<border>5</border>
-						<object class="wxStaticText" name="m_staticText8">
-							<label>Speed:</label>
+						<object class="wxStaticText" name="m_staticText9">
+							<label>Zoom:</label>
 							<wrap>-1</wrap>
 						</object>
 					</object>
 					<object class="sizeritem">
-						<option>2</option>
-						<flag>wxALIGN_CENTER_VERTICAL|wxALL|wxEXPAND</flag>
+						<option>1</option>
+						<flag>wxALL|wxEXPAND</flag>
 						<border>5</border>
-						<object class="wxSlider" name="SpeedSlider">
+						<object class="wxSlider" name="ZoomSlider">
 							<style>wxSL_AUTOTICKS|wxSL_HORIZONTAL</style>
 							<value>5</value>
 							<min>0</min>
@@ -212,26 +212,6 @@
 						<flag>wxEXPAND</flag>
 						<border>5</border>
 						<size>0,0</size>
-					</object>
-					<object class="sizeritem">
-						<option>0</option>
-						<flag>wxALIGN_RIGHT|wxALL</flag>
-						<border>5</border>
-						<object class="wxStaticText" name="m_staticText9">
-							<label>Zoom:</label>
-							<wrap>-1</wrap>
-						</object>
-					</object>
-					<object class="sizeritem">
-						<option>1</option>
-						<flag>wxALL|wxEXPAND</flag>
-						<border>5</border>
-						<object class="wxSlider" name="ZoomSlider">
-							<style>wxSL_AUTOTICKS|wxSL_HORIZONTAL</style>
-							<value>5</value>
-							<min>0</min>
-							<max>10</max>
-						</object>
 					</object>
 				</object>
 			</object>
