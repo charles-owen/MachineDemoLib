@@ -9,6 +9,7 @@
 #define CANADIANEXPERIENCE_MACHINEDEMOBASEAPP_H
 
 #include "Controller.h"
+#include <miniaudio.h>
 
 class IMachineIsolator;
 
@@ -22,10 +23,20 @@ private:
     /// The application command-line-based controller
     Controller mController;
 
+    /// The audio engine for miniaudio
+    ma_engine mAudioEngine;
+
 public:
     bool OnInit() override;
+    int OnExit() override;
 
-    virtual std::shared_ptr<IMachineIsolator> CreateMachineIsolator(std::wstring resourcesDir) = 0;
+    /**
+     * Create the machine isolator, which contains the machine we are displaying.
+     * @param resourcesDir Directory containing the resources for the program
+     * @param audioEngine The miniaudio engine
+     * @return MachineIsolator object
+     */
+    virtual std::shared_ptr<IMachineIsolator> CreateMachineIsolator(std::wstring resourcesDir, ma_engine *audioEngine) = 0;
 
     bool OnCmdLineParsed(wxCmdLineParser & 	parser) override;
 
