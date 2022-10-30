@@ -66,7 +66,7 @@ bool MachineDemoBaseApp::OnInit()
 
 /**
  * Handle exit from application
- * @return
+ * @return Any exit code
  */
 int MachineDemoBaseApp::OnExit()
 {

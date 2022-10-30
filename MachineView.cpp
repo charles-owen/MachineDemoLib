@@ -22,7 +22,7 @@ const int ViewHeight = 800;
 const int OffsetX = 150;
 
 /// Amount we offset the Y origin into the window in pixel
-const int OffsetY = 150;
+const int OffsetY = 125;
 
 /// How long to draw the coordinate axis in pixels
 const int AxisLength = 100;

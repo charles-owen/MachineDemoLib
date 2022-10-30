@@ -29,20 +29,15 @@
 	</object>
 	<object class="wxPanel" name="ControlPanel">
 		<style>wxBORDER_SUNKEN|wxTAB_TRAVERSAL</style>
-		<size>900,-1</size>
+		<size>1000,-1</size>
 		<object class="wxBoxSizer">
 			<orient>wxVERTICAL</orient>
 			<object class="sizeritem">
-				<option>0</option>
+				<option>1</option>
 				<flag>wxEXPAND</flag>
 				<border>5</border>
-				<object class="wxFlexGridSizer">
-					<rows>2</rows>
-					<cols>11</cols>
-					<vgap>0</vgap>
-					<hgap>0</hgap>
-					<growablecols>3,5,8,10</growablecols>
-					<growablerows></growablerows>
+				<object class="wxBoxSizer">
+					<orient>wxHORIZONTAL</orient>
 					<object class="sizeritem">
 						<option>0</option>
 						<flag>wxALIGN_CENTER_VERTICAL|wxLEFT</flag>
@@ -84,18 +79,37 @@
 					</object>
 					<object class="sizeritem">
 						<option>0</option>
-						<flag>wxALIGN_CENTER_VERTICAL|wxALIGN_RIGHT</flag>
-						<border>10</border>
+						<flag>wxALIGN_CENTER_VERTICAL|wxALL</flag>
+						<border>5</border>
 						<object class="wxStaticText" name="m_staticText4">
 							<label>Frame:</label>
 							<wrap>-1</wrap>
 						</object>
 					</object>
 					<object class="sizeritem">
-						<option>1</option>
+						<option>0</option>
 						<flag>wxALIGN_CENTER_VERTICAL</flag>
 						<border>10</border>
 						<object class="wxStaticText" name="FrameNumber">
+							<size>40,-1</size>
+							<label>0</label>
+							<wrap>-1</wrap>
+						</object>
+					</object>
+					<object class="sizeritem">
+						<option>0</option>
+						<flag>wxALIGN_CENTER_VERTICAL|wxALL</flag>
+						<border>5</border>
+						<object class="wxStaticText" name="m_staticText81">
+							<label>Time:</label>
+							<wrap>-1</wrap>
+						</object>
+					</object>
+					<object class="sizeritem">
+						<option>2</option>
+						<flag>wxALIGN_CENTER_VERTICAL</flag>
+						<border>5</border>
+						<object class="wxStaticText" name="MachineTime">
 							<size>40,-1</size>
 							<label>0</label>
 							<wrap>-1</wrap>
@@ -115,9 +129,10 @@
 					</object>
 					<object class="sizeritem">
 						<option>0</option>
-						<flag>wxALIGN_CENTER_VERTICAL</flag>
-						<border>10</border>
+						<flag>wxALIGN_CENTER_VERTICAL|wxALL</flag>
+						<border>5</border>
 						<object class="wxStaticText" name="m_staticText6">
+							<style>wxALIGN_RIGHT</style>
 							<label>Machine:</label>
 							<wrap>-1</wrap>
 						</object>
@@ -132,9 +147,15 @@
 							<wrap>-1</wrap>
 						</object>
 					</object>
+					<object class="spacer">
+						<option>1</option>
+						<flag>wxEXPAND</flag>
+						<border>5</border>
+						<size>0,0</size>
+					</object>
 					<object class="sizeritem">
 						<option>0</option>
-						<flag>wxALIGN_RIGHT|wxALL</flag>
+						<flag>wxALIGN_CENTER_VERTICAL|wxALL</flag>
 						<border>5</border>
 						<object class="wxStaticText" name="m_staticText9">
 							<label>Zoom:</label>
@@ -142,83 +163,23 @@
 						</object>
 					</object>
 					<object class="sizeritem">
-						<option>1</option>
+						<option>2</option>
 						<flag>wxALL|wxEXPAND</flag>
 						<border>5</border>
 						<object class="wxSlider" name="ZoomSlider">
 							<style>wxSL_AUTOTICKS|wxSL_HORIZONTAL</style>
+							<size>200,-1</size>
 							<value>5</value>
 							<min>0</min>
 							<max>10</max>
 						</object>
-					</object>
-					<object class="spacer">
-						<option>1</option>
-						<flag>wxEXPAND</flag>
-						<border>5</border>
-						<size>0,0</size>
-					</object>
-					<object class="spacer">
-						<option>1</option>
-						<flag>wxEXPAND</flag>
-						<border>5</border>
-						<size>0,0</size>
-					</object>
-					<object class="spacer">
-						<option>1</option>
-						<flag>wxEXPAND</flag>
-						<border>5</border>
-						<size>0,0</size>
-					</object>
-					<object class="spacer">
-						<option>1</option>
-						<flag>wxEXPAND</flag>
-						<border>5</border>
-						<size>0,0</size>
-					</object>
-					<object class="sizeritem">
-						<option>0</option>
-						<flag>wxALIGN_CENTER_VERTICAL|wxALIGN_RIGHT</flag>
-						<border>5</border>
-						<object class="wxStaticText" name="m_staticText81">
-							<label>Time:</label>
-							<wrap>-1</wrap>
-						</object>
-					</object>
-					<object class="sizeritem">
-						<option>2</option>
-						<flag>wxALIGN_CENTER_VERTICAL</flag>
-						<border>5</border>
-						<object class="wxStaticText" name="MachineTime">
-							<size>40,-1</size>
-							<label>0</label>
-							<wrap>-1</wrap>
-						</object>
-					</object>
-					<object class="spacer">
-						<option>1</option>
-						<flag>wxEXPAND</flag>
-						<border>5</border>
-						<size>0,0</size>
-					</object>
-					<object class="spacer">
-						<option>1</option>
-						<flag>wxEXPAND</flag>
-						<border>5</border>
-						<size>0,0</size>
-					</object>
-					<object class="spacer">
-						<option>1</option>
-						<flag>wxEXPAND</flag>
-						<border>5</border>
-						<size>0,0</size>
 					</object>
 				</object>
 			</object>
 			<object class="sizeritem">
 				<option>0</option>
 				<flag>wxBOTTOM|wxEXPAND|wxLEFT|wxRIGHT|wxTOP</flag>
-				<border>10</border>
+				<border>5</border>
 				<object class="wxSlider" name="FrameSlider">
 					<style>wxSL_AUTOTICKS|wxSL_HORIZONTAL</style>
 					<value>0</value>
@@ -245,11 +206,41 @@
 			</object>
 			<object class="sizeritem">
 				<option>0</option>
+				<flag>wxEXPAND|wxLEFT|wxRIGHT|wxTOP</flag>
+				<border>10</border>
+				<object class="wxStaticText" name="m_staticText111">
+					<style>wxALIGN_CENTER_HORIZONTAL</style>
+					<label>The Amazing</label>
+					<wrap>-1</wrap>
+				</object>
+			</object>
+			<object class="sizeritem">
+				<option>0</option>
+				<flag>wxEXPAND|wxLEFT|wxRIGHT</flag>
+				<border>5</border>
+				<object class="wxStaticText" name="m_staticText1111">
+					<style>wxALIGN_CENTER_HORIZONTAL</style>
+					<label>Machine Demonstrator</label>
+					<wrap>-1</wrap>
+				</object>
+			</object>
+			<object class="sizeritem">
+				<option>0</option>
+				<flag>wxALL|wxEXPAND</flag>
+				<border>10</border>
+				<object class="wxStaticText" name="m_staticText15">
+					<style>wxALIGN_CENTER_HORIZONTAL</style>
+					<label>by</label>
+					<wrap>-1</wrap>
+				</object>
+			</object>
+			<object class="sizeritem">
+				<option>0</option>
 				<flag>wxALL|wxEXPAND</flag>
 				<border>5</border>
-				<object class="wxStaticText" name="m_staticText11">
+				<object class="wxStaticText" name="m_staticText16">
 					<style>wxALIGN_CENTER_HORIZONTAL</style>
-					<label>The Amazing\nMachine Demonstrator\n\nby\n\nCharles B. Owen\n</label>
+					<label>Charles B. Owen</label>
 					<wrap>-1</wrap>
 				</object>
 			</object>
@@ -326,7 +317,7 @@
 			</object>
 			<object class="sizeritem">
 				<option>1</option>
-				<flag>wxEXPAND</flag>
+				<flag>wxALIGN_CENTER_HORIZONTAL</flag>
 				<border>5</border>
 				<object class="wxStdDialogButtonSizer">
 					<object class="button">
