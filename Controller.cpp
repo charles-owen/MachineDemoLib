@@ -157,6 +157,10 @@ Controller::TaskFrame::TaskFrame(Controller* controller, const wxString &arg) : 
     mFrame = wxAtoi(arg);
 }
 
+/**
+ * Execute the frame task
+ * @return false
+ */
 bool Controller::TaskFrame::Execute()
 {
     mController->mControlPanel->SetFrame(mFrame);
@@ -164,11 +168,20 @@ bool Controller::TaskFrame::Execute()
     return false;
 }
 
+/**
+ * Constructor
+ * @param controller The controller
+ * @param arg Arguments to pass to the capture, in this case the file name
+ */
 Controller::TaskCapture::TaskCapture(Controller* controller, const wxString& arg) : Task(controller)
 {
     mFilename = arg;
 }
 
+/**
+ * Execute the capture task
+ * @return false
+ */
 bool Controller::TaskCapture::Execute()
 {
     wxWindowDC windowDC(mController->mMachineView);
@@ -219,18 +232,32 @@ bool Controller::TaskCapture::Execute()
     return false;
 }
 
+/**
+ * Execute the exit task
+ * @return true to indicate an exit
+ */
 bool Controller::TaskExit::Execute()
 {
     mController->mMainFrame->Close();
     return true;
 }
 
+/**
+ * Constructor
+ * @param controller The controller
+ * @param arg1 Filename to save to
+ * @param arg2 Duration in seconds of a frame
+ */
 Controller::TaskWriteGIF::TaskWriteGIF(Controller* controller, const wxString& arg1, const wxString& arg2) : Task(controller)
 {
     mFilename = arg1;
     mDuration = wxAtof(arg2);
 }
 
+/**
+ * Execute a git task
+ * @return false
+ */
 bool Controller::TaskWriteGIF::Execute()
 {
     wxFileOutputStream stream(mFilename);
@@ -251,11 +278,20 @@ bool Controller::TaskWriteGIF::Execute()
     return false;
 }
 
+/**
+ * Constructor
+ * @param controller The controller
+ * @param arg Machine number
+ */
 Controller::TaskMachine::TaskMachine(Controller* controller, const wxString& arg) : Task(controller)
 {
     mMachine = wxAtoi(arg);
 }
 
+/**
+ * Execute the machine task
+ * @return false
+ */
 bool Controller::TaskMachine::Execute()
 {
     mController->mControlPanel->SetMachineNumber(mMachine);

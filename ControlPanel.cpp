@@ -207,12 +207,20 @@ void ControlPanel::OnTimer(wxTimerEvent& event)
     SetMachineFrame(frame);
 }
 
+/**
+ * Set the current control panel frame
+ * @param frame Frame number
+ */
 void ControlPanel::SetFrame(int frame)
 {
     mFrameSlider->SetValue(frame);
     SetMachineFrame(frame);
 }
 
+/**
+ * Set the machine number, choosing the new machine
+ * @param machineNum Machine number
+ */
 void ControlPanel::SetMachineNumber(int machineNum)
 {
     auto machine = mMachineView->GetMachineIsolator();

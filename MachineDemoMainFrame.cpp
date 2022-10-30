@@ -20,6 +20,8 @@ const std::wstring ImagesDirectory = L"/images";
 
 /**
  * Constructor
+ * @param machineIsolator The machine isolator that is used to create the images to use
+ * @param controller The controller that controls the machine
  */
 MachineDemoMainFrame::MachineDemoMainFrame(std::shared_ptr<IMachineIsolator> machineIsolator,
         Controller* controller)

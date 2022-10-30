@@ -74,12 +74,21 @@ int MachineDemoBaseApp::OnExit()
     return wxAppBase::OnExit();
 }
 
+/**
+ * Handle a passed-in command line
+ * @param parser The command line parser object
+ */
 void MachineDemoBaseApp::OnInitCmdLine(wxCmdLineParser& parser)
 {
     wxAppBase::OnInitCmdLine(parser);
     mController.OnInitCmdLine(parser);
 }
 
+/**
+ * Indicate that the command line arguments have been parsed
+ * @param parser The command line parser object
+ * @return true if successful
+ */
 bool MachineDemoBaseApp::OnCmdLineParsed(wxCmdLineParser& parser)
 {
     if(!mController.OnCmdLineParsed(parser))

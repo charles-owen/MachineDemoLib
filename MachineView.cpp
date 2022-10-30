@@ -36,6 +36,7 @@ const int ArrowWidth = 10;
 /**
  * Constructor
  * @param mainFrame Parent MainFrame object
+ * @param machineIsolator The machine isolator that takes care of creating machines
  * @param imagesDir Directory containing images
  */
 MachineView::MachineView(MachineDemoMainFrame* mainFrame,

@@ -30,13 +30,20 @@ private:
     /// The control panel
     ControlPanel* mControlPanel = nullptr;
 
+    /// Controller task base class
     class Task {
     protected:
+        /// Control this is a member of
         Controller* mController;
 
     public:
+        /**
+         * Constructor
+         * @param controller Controller this is a member of
+         */
         Task(Controller* controller) : mController(controller) {}
 
+        /// Destructor
         virtual ~Task() = default;
 
         /// Default constructor (disabled)
@@ -55,8 +62,10 @@ private:
         virtual bool Execute() = 0;
     };
 
+    /// Frame selection task
     class TaskFrame : public Task {
     private:
+        /// Frame to move to
         int mFrame;
 
     public:
@@ -64,8 +73,10 @@ private:
         bool Execute() override;
     };
 
+    /// Machine selection task
     class TaskMachine : public Task {
     private:
+        /// Machine to select
         int mMachine;
 
     public:
@@ -73,8 +84,10 @@ private:
         bool Execute() override;
     };
 
+    /// Capture a frame task
     class TaskCapture : public Task {
     private:
+        /// Filename to capture to
         wxString mFilename;
 
     public:
@@ -82,9 +95,13 @@ private:
         bool Execute() override;
     };
 
+    /// Write sequence of images as a GIF file
     class TaskWriteGIF : public Task {
     private:
+        /// GIF filename
         wxString mFilename;
+
+        /// Duoration of a frame in seconds
         double mDuration;
 
     public:
@@ -92,16 +109,21 @@ private:
         bool Execute() override;
     };
 
+    /// Exit the application taask
     class TaskExit : public Task {
-    private:
-        wxString mFilename;
-
     public:
+        /**
+         * Constructor
+         * @param controller The controller
+         */
         explicit TaskExit(Controller* controller) : Task(controller) {}
         bool Execute() override;
     };
 
+    /// The list of tasks
     std::list<std::shared_ptr<Task>> mTasks;
+
+    /// The list of saved images
     std::vector<wxImage> mImages;
 
 public:

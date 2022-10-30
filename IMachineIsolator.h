@@ -8,6 +8,13 @@
 #ifndef CANADIANEXPERIENCE_IMACHINEISOLATOR_H
 #define CANADIANEXPERIENCE_IMACHINEISOLATOR_H
 
+/**
+ * Interface for a machine isolator.
+ *
+ * A machine isolator is a class that wraps a machine
+ * and can then be passed to code that does not know
+ * anything about the machine other than the interface.
+ */
 class IMachineIsolator {
 public:
     /**
@@ -30,6 +37,7 @@ public:
 
     /**
      * Set the expected frame rate in frames per second
+     * @param rate Frame rate in frames per second
      */
     virtual void SetFrameRate(double rate) = 0;
 
