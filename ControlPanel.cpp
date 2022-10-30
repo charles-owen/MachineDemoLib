@@ -14,7 +14,7 @@
 #include "IMachineIsolator.h"
 
 /// Maximum frame we play to
-const int MaxFrame = 300;
+const int MaxFrame = 900;
 
 /// Minimum possible zoom factor
 const double MinZoom = 0.5;
@@ -122,11 +122,16 @@ void ControlPanel::OnZoomSliderChanged(wxCommandEvent &event)
  */
 void ControlPanel::OnSelectMachine(wxCommandEvent& event)
 {
+    Stop();
+
     auto machine = mMachineView->GetMachineIsolator();
     if(machine->DoDialog(this->GetParent()))
     {
         mMachineNumberCtrl->SetLabel(wxString::Format(wxT("%i"), machine->GetMachineNumber()));
         mMachineView->SetupMachine();
+
+        mFrameSlider->SetValue(0);
+        SetMachineFrame(0);
     }
 }
 
