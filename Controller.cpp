@@ -281,7 +281,7 @@ bool Controller::TaskWriteGIF::Execute()
 /**
  * Constructor
  * @param controller The controller
- * @param arg Machine number
+ * @param arg The machine number
  */
 Controller::TaskMachine::TaskMachine(Controller* controller, const wxString& arg) : Task(controller)
 {

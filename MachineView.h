@@ -43,9 +43,9 @@ public:
     void SetZoom(double zoom);
 
     /**
-     * Get the machine we are viewing, as
+     * Get the machine system we are viewing, as
      * protected by the isolator.
-     * @return Machine in an isolator object
+     * @return MachineSystem in an isolator object
      */
     auto GetMachineIsolator() {return mMachineIsolator;}
 

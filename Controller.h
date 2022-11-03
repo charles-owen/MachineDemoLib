@@ -24,7 +24,7 @@ private:
     /// The MainFrame window
     MachineDemoMainFrame* mMainFrame = nullptr;
 
-    /// The Machine view
+    /// The Machine System view
     MachineView* mMachineView = nullptr;
 
     /// The control panel
