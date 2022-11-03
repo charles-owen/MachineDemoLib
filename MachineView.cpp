@@ -9,7 +9,7 @@
 
 #include "MachineView.h"
 #include "MachineDemoMainFrame.h"
-#include "IMachineIsolator.h"
+#include "IMachineSystemIsolator.h"
 
 
 /// View width
@@ -40,7 +40,7 @@ const int ArrowWidth = 10;
  * @param imagesDir Directory containing images
  */
 MachineView::MachineView(MachineDemoMainFrame* mainFrame,
-        std::shared_ptr<IMachineIsolator> machineIsolator, std::wstring imagesDir) :
+        std::shared_ptr<IMachineSystemIsolator> machineIsolator, std::wstring imagesDir) :
     wxScrolledCanvas(mainFrame, wxID_ANY), mMachineIsolator(machineIsolator)
 {
     SetBackgroundStyle(wxBG_STYLE_PAINT);

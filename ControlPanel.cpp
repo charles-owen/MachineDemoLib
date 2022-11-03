@@ -11,7 +11,7 @@
 #include "MachineDemoMainFrame.h"
 #include "MachineView.h"
 
-#include "IMachineIsolator.h"
+#include "IMachineSystemIsolator.h"
 
 /// Maximum frame we play to
 const int MaxFrame = 900;

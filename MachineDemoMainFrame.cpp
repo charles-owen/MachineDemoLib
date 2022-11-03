@@ -23,7 +23,7 @@ const std::wstring ImagesDirectory = L"/images";
  * @param machineIsolator The machine isolator that is used to create the images to use
  * @param controller The controller that controls the machine
  */
-MachineDemoMainFrame::MachineDemoMainFrame(std::shared_ptr<IMachineIsolator> machineIsolator,
+MachineDemoMainFrame::MachineDemoMainFrame(std::shared_ptr<IMachineSystemIsolator> machineIsolator,
         Controller* controller)
 {
     wxXmlResource::Get()->LoadFrame(this, nullptr, L"MainFrame");

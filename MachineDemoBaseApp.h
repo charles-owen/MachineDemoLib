@@ -11,7 +11,7 @@
 #include "Controller.h"
 #include <miniaudio.h>
 
-class IMachineIsolator;
+class IMachineSystemIsolator;
 
 
 /**
@@ -34,9 +34,9 @@ public:
      * Create the machine isolator, which contains the machine we are displaying.
      * @param resourcesDir Directory containing the resources for the program
      * @param audioEngine The miniaudio engine
-     * @return MachineIsolator object
+     * @return MachineSystemIsolator object
      */
-    virtual std::shared_ptr<IMachineIsolator> CreateMachineIsolator(std::wstring resourcesDir, ma_engine *audioEngine) = 0;
+    virtual std::shared_ptr<IMachineSystemIsolator> CreateMachineIsolator(std::wstring resourcesDir, ma_engine *audioEngine) = 0;
 
     bool OnCmdLineParsed(wxCmdLineParser & 	parser) override;
 

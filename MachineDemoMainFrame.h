@@ -10,7 +10,7 @@
 
 class MachineView;
 class ControlPanel;
-class IMachineIsolator;
+class IMachineSystemIsolator;
 class Controller;
 
 /**
@@ -29,7 +29,7 @@ private:
     void OnClose(wxCloseEvent& event);
 
 public:
-    MachineDemoMainFrame(std::shared_ptr<IMachineIsolator> machineIsolator, Controller* controller);
+    MachineDemoMainFrame(std::shared_ptr<IMachineSystemIsolator> machineIsolator, Controller* controller);
 
     /// Default constructor (disabled)
     MachineDemoMainFrame() = delete;

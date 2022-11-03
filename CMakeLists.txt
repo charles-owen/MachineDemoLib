@@ -11,7 +11,7 @@ find_package(wxWidgets COMPONENTS core base xrc html xml REQUIRED)
 include(${wxWidgets_USE_FILE})
 
 # Define a variable containing a list of source files for the project
-set(SOURCE_FILES pch.h IMachineIsolator.h
+set(SOURCE_FILES pch.h IMachineSystemIsolator.h
         MachineDemoBaseApp.h MachineDemoBaseApp.cpp
         MachineDemoMainFrame.cpp MachineDemoMainFrame.h
         ControlPanel.cpp ControlPanel.h

@@ -1,12 +1,12 @@
 /**
- * @file IMachineIsolator.h
+ * @file IMachineSystemIsolator.h
  * @author Charles Owen
  *
  * Interface for a machine isolator.
  */
 
-#ifndef CANADIANEXPERIENCE_IMACHINEISOLATOR_H
-#define CANADIANEXPERIENCE_IMACHINEISOLATOR_H
+#ifndef CANADIANEXPERIENCE_IMACHINESYSTEMISOLATOR_H
+#define CANADIANEXPERIENCE_IMACHINESYSTEMISOLATOR_H
 
 /**
  * Interface for a machine isolator.
@@ -15,7 +15,7 @@
  * and can then be passed to code that does not know
  * anything about the machine other than the interface.
  */
-class IMachineIsolator {
+class IMachineSystemIsolator {
 public:
     /**
      * Set the position for the root of the machine
@@ -67,4 +67,4 @@ public:
     virtual bool DoDialog(wxWindow* parent) = 0;
 };
 
-#endif //CANADIANEXPERIENCE_IMACHINEISOLATOR_H
+#endif //CANADIANEXPERIENCE_IMACHINESYSTEMISOLATOR_H

@@ -9,7 +9,7 @@
 #define CANADIANEXPERIENCE_MACHINEVIEW_H
 
 class MachineDemoMainFrame;
-class IMachineIsolator;
+class IMachineSystemIsolator;
 
 /**
  * The view for our machine
@@ -22,7 +22,7 @@ private:
     bool mFirstDraw = true;
 
     /// The machine we are displaying
-    std::shared_ptr<IMachineIsolator> mMachineIsolator;
+    std::shared_ptr<IMachineSystemIsolator> mMachineIsolator;
 
     /// Current machine frame
     int mFrame = 0;
@@ -34,7 +34,7 @@ private:
     int mFrameRate = 30;
 
 public:
-    explicit MachineView(MachineDemoMainFrame *mainFrame, std::shared_ptr<IMachineIsolator> machineIsolator, std::wstring imagesDir);
+    explicit MachineView(MachineDemoMainFrame *mainFrame, std::shared_ptr<IMachineSystemIsolator> machineIsolator, std::wstring imagesDir);
 
     void DrawAxis(std::shared_ptr<wxGraphicsContext> graphics);
 
