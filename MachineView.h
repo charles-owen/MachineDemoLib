@@ -46,7 +46,7 @@ public:
     /**
      * Get the machine system we are viewing, as
      * protected by the isolator.
-     * @return MachineSystem in an isolator object
+     * @return IMachineSystem in an isolator object
      */
     auto GetMachineIsolator() {return mMachineIsolator;}
 
