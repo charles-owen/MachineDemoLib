@@ -147,6 +147,113 @@
 							<wrap>-1</wrap>
 						</object>
 					</object>
+					<object class="sizeritem">
+						<option>0</option>
+						<flag>wxEXPAND | wxALL</flag>
+						<border>5</border>
+						<object class="wxPanel" name="m_panel1">
+							<style>wxTAB_TRAVERSAL</style>
+							<object class="wxBoxSizer">
+								<orient>wxVERTICAL</orient>
+								<object class="sizeritem">
+									<option>1</option>
+									<flag>wxEXPAND</flag>
+									<border>5</border>
+									<object class="wxBoxSizer">
+										<orient>wxHORIZONTAL</orient>
+										<object class="sizeritem">
+											<option>0</option>
+											<flag>wxALIGN_BOTTOM</flag>
+											<border>5</border>
+											<object class="wxCheckBox" name="Flag0">
+												<label></label>
+												<checked>1</checked>
+											</object>
+										</object>
+										<object class="sizeritem">
+											<option>0</option>
+											<flag>wxALIGN_BOTTOM</flag>
+											<border>5</border>
+											<object class="wxCheckBox" name="Flag1">
+												<label></label>
+												<checked>0</checked>
+											</object>
+										</object>
+										<object class="sizeritem">
+											<option>0</option>
+											<flag>wxALIGN_BOTTOM</flag>
+											<border>5</border>
+											<object class="wxCheckBox" name="Flag2">
+												<label></label>
+												<checked>0</checked>
+											</object>
+										</object>
+										<object class="sizeritem">
+											<option>0</option>
+											<flag>wxALIGN_BOTTOM</flag>
+											<border>5</border>
+											<object class="wxCheckBox" name="Flag3">
+												<label></label>
+												<checked>0</checked>
+											</object>
+										</object>
+										<object class="sizeritem">
+											<option>0</option>
+											<flag>wxALIGN_BOTTOM</flag>
+											<border>5</border>
+											<object class="wxCheckBox" name="Flag4">
+												<label></label>
+												<checked>0</checked>
+											</object>
+										</object>
+										<object class="sizeritem">
+											<option>0</option>
+											<flag>wxALIGN_BOTTOM</flag>
+											<border>5</border>
+											<object class="wxCheckBox" name="Flag5">
+												<label></label>
+												<checked>0</checked>
+											</object>
+										</object>
+										<object class="sizeritem">
+											<option>0</option>
+											<flag>wxALIGN_BOTTOM</flag>
+											<border>5</border>
+											<object class="wxCheckBox" name="Flag6">
+												<label></label>
+												<checked>0</checked>
+											</object>
+										</object>
+										<object class="sizeritem">
+											<option>0</option>
+											<flag>wxALIGN_BOTTOM</flag>
+											<border>5</border>
+											<object class="wxCheckBox" name="Flag7">
+												<label></label>
+												<checked>0</checked>
+											</object>
+										</object>
+									</object>
+								</object>
+								<object class="sizeritem">
+									<option>0</option>
+									<flag>wxALL|wxEXPAND</flag>
+									<border>5</border>
+									<object class="wxStaticText" name="m_staticText14">
+										<style>wxALIGN_CENTER_HORIZONTAL</style>
+										<font>
+											<size>10</size>
+											<style>normal</style>
+											<weight>normal</weight>
+											<underlined>0</underlined>
+										</font>
+										<label>Flags</label>
+										<wrap>-1</wrap>
+									</object>
+								</object>
+							</object>
+						</object>
+					</object>
 					<object class="spacer">
 						<option>1</option>
 						<flag>wxEXPAND</flag>

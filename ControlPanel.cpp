@@ -75,12 +75,58 @@ ControlPanel::ControlPanel(MachineDemoMainFrame* mainFrame)
     Bind(wxEVT_BUTTON, &ControlPanel::OnStop, this, XRCID("Stop"));
     Bind(wxEVT_TIMER, &ControlPanel::OnTimer, this);
 
+    //
+    // Flag bits
+    //
+    mFlags[0] = XRCCTRL(*this, "Flag0", wxCheckBox);
+    mFlags[1] = XRCCTRL(*this, "Flag1", wxCheckBox);
+    mFlags[2] = XRCCTRL(*this, "Flag2", wxCheckBox);
+    mFlags[3] = XRCCTRL(*this, "Flag3", wxCheckBox);
+    mFlags[4] = XRCCTRL(*this, "Flag4", wxCheckBox);
+    mFlags[5] = XRCCTRL(*this, "Flag5", wxCheckBox);
+    mFlags[6] = XRCCTRL(*this, "Flag6", wxCheckBox);
+    mFlags[7] = XRCCTRL(*this, "Flag7", wxCheckBox);
+
+    for(int i=0; i<8; i++)
+    {
+        wxString flag = wxString::Format(wxT("Flag%i"), i);
+        Bind(wxEVT_CHECKBOX, &ControlPanel::OnFlagCheckboxChanged, this, XRCID(flag));
+    }
+
     mTimer.SetOwner(this);
     mStopWatch.Start(0);
     mStopWatch.Pause();
+
+    SetFlag();
 }
 
+/**
+ * Handle changes in the flag checkboxes
+ * @param event Command event indicating the change
+ */
+void ControlPanel::OnFlagCheckboxChanged(wxCommandEvent &event)
+{
+    SetFlag();
+}
 
+/**
+ * Set the flag value based on the current controls
+ */
+void ControlPanel::SetFlag()
+{
+    int flag = 0;
+    for(int i=7; i>=0;  i--)
+    {
+        flag <<= 1;
+
+        if(mFlags[i]->IsChecked())
+        {
+            flag |= 1;
+        }
+    }
+
+    mMachineView->SetFlag(flag);
+}
 
 
 /**
@@ -230,4 +276,5 @@ void ControlPanel::SetMachineNumber(int machineNum)
 
     mFrameSlider->SetValue(0);
     SetMachineFrame(0);
+    SetFlag();
 }

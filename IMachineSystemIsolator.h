@@ -65,6 +65,12 @@ public:
      * @return True if OK pressed
      */
     virtual bool DoDialog(wxWindow* parent) = 0;
+
+    /**
+     * General-purpose flag system for development use.
+     * @param flag Flag value to use (8-bits with bits set from control panel)
+     */
+    virtual void SetFlag(int flag) = 0;
 };
 
 #endif //CANADIANEXPERIENCE_IMACHINESYSTEMISOLATOR_H

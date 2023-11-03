@@ -24,6 +24,9 @@ private:
     void OnPlay(wxCommandEvent& event);
     void OnStop(wxCommandEvent& event);
     void OnTimer(wxTimerEvent& event);
+    void OnFlagCheckboxChanged(wxCommandEvent &event);
+
+    void SetFlag();
 
     void SetMachineFrame(int frame);
 
@@ -53,6 +56,9 @@ private:
 
     /// Are we playing?
     bool mPlaying = false;
+
+    /// The 8 flag checkboxes
+    wxCheckBox* mFlags[8];
 
 public:
     ControlPanel(MachineDemoMainFrame *mainFrame);

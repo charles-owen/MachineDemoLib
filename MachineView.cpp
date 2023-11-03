@@ -25,7 +25,7 @@ const int OffsetX = 150;
 const int OffsetY = 125;
 
 /// How long to draw the coordinate axis in pixels
-const int AxisLength = 100;
+const int AxisLength = 70;
 
 /// Length of the coordinate axis arrows in pixels
 const int ArrowLength = 10;
@@ -204,5 +204,15 @@ void MachineView::SetupMachine()
     mMachineIsolator->SetFrameRate(mFrameRate);
     mMachineIsolator->SetMachineFrame(mFrame);
 
+    Refresh();
+}
+
+/**
+ * Set the flag
+ * @param flag Flag value to set
+ */
+void MachineView::SetFlag(int flag)
+{
+    mMachineIsolator->SetFlag(flag);
     Refresh();
 }

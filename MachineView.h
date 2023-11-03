@@ -41,6 +41,7 @@ public:
     double SetFrame(int frame);
 
     void SetZoom(double zoom);
+    void SetFlag(int flag);
 
     /**
      * Get the machine system we are viewing, as
