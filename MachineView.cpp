@@ -75,7 +75,7 @@ void MachineView::OnPaint(wxPaintEvent& event)
     wxAutoBufferedPaintDC dc(this);
     DoPrepareDC(dc);
 
-    wxBrush background(*wxWHITE);
+    wxBrush background(*wxBLUE); // *wxWHITE);
     dc.SetBackground(background);
     dc.Clear();
 
@@ -100,7 +100,7 @@ void MachineView::OnPaint(wxPaintEvent& event)
  */
 void MachineView::DrawAxis(std::shared_ptr<wxGraphicsContext> graphics)
 {
-    graphics->SetPen(*wxBLACK_PEN);
+    graphics->SetPen(*wxWHITE_PEN);
     graphics->StrokeLine(0, 0, AxisLength, 0);
     graphics->StrokeLine(AxisLength-ArrowLength, 0-ArrowWidth/2, AxisLength, 0);
     graphics->StrokeLine(AxisLength-ArrowLength, 0+ArrowWidth/2, AxisLength, 0);
@@ -113,7 +113,7 @@ void MachineView::DrawAxis(std::shared_ptr<wxGraphicsContext> graphics)
             wxFONTFAMILY_SWISS,
             wxFONTSTYLE_NORMAL,
             wxFONTWEIGHT_NORMAL);
-    graphics->SetFont(font, *wxBLACK);
+    graphics->SetFont(font, *wxWHITE);
 
     graphics->DrawText(L"X", AxisLength + 5, -8);
     graphics->DrawText(L"Y", -6, AxisLength + 5);
@@ -122,7 +122,7 @@ void MachineView::DrawAxis(std::shared_ptr<wxGraphicsContext> graphics)
             wxFONTFAMILY_SWISS,
             wxFONTSTYLE_NORMAL,
             wxFONTWEIGHT_NORMAL);
-    graphics->SetFont(font2, *wxBLACK);
+    graphics->SetFont(font2, *wxWHITE);
 
     graphics->DrawText(L"(0,0)", 3, -14);
 
