@@ -75,7 +75,7 @@ void MachineView::OnPaint(wxPaintEvent& event)
     wxAutoBufferedPaintDC dc(this);
     DoPrepareDC(dc);
 
-    wxBrush background(*wxBLUE); // *wxWHITE);
+    wxBrush background(wxColour(0, 220, 255)); // *wxWHITE);
     dc.SetBackground(background);
     dc.Clear();
 
