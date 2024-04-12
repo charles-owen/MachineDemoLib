@@ -9,10 +9,9 @@
 #define CANADIANEXPERIENCE_MACHINEDEMOBASEAPP_H
 
 #include "Controller.h"
-#include <miniaudio.h>
 
 class IMachineSystemIsolator;
-
+class ma_engine;
 
 /**
  * Base class for the MachineDemo application class
@@ -22,9 +21,6 @@ class MachineDemoBaseApp : public wxApp {
 private:
     /// The application command-line-based controller
     Controller mController;
-
-    /// The audio engine for miniaudio
-    ma_engine mAudioEngine;
 
 public:
     bool OnInit() override;

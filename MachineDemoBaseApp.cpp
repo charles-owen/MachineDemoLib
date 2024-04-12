@@ -9,9 +9,6 @@
 #include <wx/stdpaths.h>
 #include <wx/cmdline.h>
 
-#define MINIAUDIO_IMPLEMENTATION
-#include "miniaudio.h"
-
 #include "MachineDemoBaseApp.h"
 #include "MachineDemoMainFrame.h"
 
@@ -30,16 +27,6 @@ bool MachineDemoBaseApp::OnInit()
     // Add image type handlers
     wxInitAllImageHandlers();
 
-    // Initialize the audio engine
-    auto result = ma_engine_init(NULL, &mAudioEngine);
-    if (result != MA_SUCCESS)
-    {
-        wxString msg;
-        msg.Printf(L"Unable to initialize miniaudio engine - %d", result);
-        wxMessageBox( msg, wxT("miniaudio failure"), wxICON_ERROR);
-        return false;
-    }
-
     // Get pointer to XML resource system
     auto xmlResource = wxXmlResource::Get();
 
@@ -55,7 +42,7 @@ bool MachineDemoBaseApp::OnInit()
 
     // Create the machine isolator containing a machine
     auto resourcesDir = standardPaths.GetResourcesDir().ToStdWstring();
-    auto machine = CreateMachineIsolator(resourcesDir, &mAudioEngine);
+    auto machine = CreateMachineIsolator(resourcesDir, nullptr);
 
     auto frame = new MachineDemoMainFrame(machine, &mController);
     frame->Show(true);
@@ -70,7 +57,6 @@ bool MachineDemoBaseApp::OnInit()
  */
 int MachineDemoBaseApp::OnExit()
 {
-    ma_engine_uninit(&mAudioEngine);
     return wxAppBase::OnExit();
 }
 
