@@ -11,6 +11,7 @@
 
 #include "MachineDemoBaseApp.h"
 #include "MachineDemoMainFrame.h"
+#include "MachineView.h"
 
 /// Directory within resources that contains the images.
 const std::wstring ImagesDirectory = L"/images";
@@ -42,10 +43,10 @@ bool MachineDemoBaseApp::OnInit()
 
     // Create the machine isolator containing a machine
     auto resourcesDir = standardPaths.GetResourcesDir().ToStdWstring();
-    auto machine = CreateMachineIsolator(resourcesDir, nullptr);
+    auto machine = CreateMachineIsolator(resourcesDir);
 
-    auto frame = new MachineDemoMainFrame(machine, &mController);
-    frame->Show(true);
+    mMainFrame = new MachineDemoMainFrame(machine, &mController);
+    mMainFrame->Show(true);
 
     mController.Execute();
     return true;
@@ -83,4 +84,14 @@ bool MachineDemoBaseApp::OnCmdLineParsed(wxCmdLineParser& parser)
     }
 
     return wxAppBase::OnCmdLineParsed(parser);
+}
+
+/**
+ * Set the background color for the machine view
+ * @param color Color to set
+ */
+void MachineDemoBaseApp::SetBackgroundColor(const wxColour &color)
+{
+    auto view = mMainFrame->GetMachineView();
+    view->SetBackgroundColor(color);
 }

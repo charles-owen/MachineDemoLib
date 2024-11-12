@@ -33,6 +33,9 @@ private:
     /// Frame rate
     int mFrameRate = 30;
 
+    /// The background color to use
+    wxColour mBackgroundColor = *wxWHITE;
+
 public:
     explicit MachineView(MachineDemoMainFrame *mainFrame, std::shared_ptr<IMachineSystemIsolator> machineIsolator, std::wstring imagesDir);
 
@@ -59,6 +62,12 @@ public:
      * @return Frame rate in frames per second
      */
     auto GetFrameRate() const {return mFrameRate;}
+
+    /**
+     * Set the view background color
+     * @param color Color to set
+     */
+    void SetBackgroundColor(const wxColour& color) {mBackgroundColor = color;}
 
 };
 

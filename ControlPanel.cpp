@@ -270,7 +270,7 @@ void ControlPanel::SetFrame(int frame)
 void ControlPanel::SetMachineNumber(int machineNum)
 {
     auto machine = mMachineView->GetMachineIsolator();
-    machine->SetMachineNumber(machineNum);
+    machine->ChooseMachine(machineNum);
     mMachineNumberCtrl->SetLabel(wxString::Format(wxT("%i"), machine->GetMachineNumber()));
     mMachineView->SetupMachine();
 

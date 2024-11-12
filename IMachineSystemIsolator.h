@@ -45,7 +45,7 @@ public:
     * Set the machine number
     * @param machine An integer number. Each number makes a different machine
     */
-    virtual void SetMachineNumber(int machine) = 0;
+    virtual void ChooseMachine(int machine) = 0;
 
     /**
      * Get the current machine number
